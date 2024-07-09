@@ -1,0 +1,149 @@
+header{
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.none{
+  display: none !important;
+}
+.header__top {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff !important;
+}
+.header__scroll--hidden{
+  transition: 0.5s linear all;
+}
+.location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.header__top--left {
+  gap: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.formSelect {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: right;
+}
+
+.option {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+}
+
+.header__top--left--text,
+.min__time,
+.work__time {
+  margin-bottom: 0;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: right;
+}
+
+.account__link {
+  text-decoration: none;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: black;
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
+
+.account__link img {
+  margin-right: 8px; /* Rasm va matn orasidagi bo'shliq */
+}
+
+.header__top--right {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+header hr {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 1px;
+  color: #F0F0F0;
+}
+
+.header__buttom{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff !important;
+}
+.header__buttom--right,.header__scroll--cart{
+  padding: 8px 16px;
+  display: inline-block;
+  border-radius: 4px;
+  background: #FF7010;
+}
+.nav-item{
+  text-decoration: none;
+  /* color: #fff; */
+  font-size: 20px;
+}
+.navbar__hero--item{
+  display: flex;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  gap: 30px;
+}
+.header__scroll{
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px  ;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff !important;
+  transition: 0.5s linear all;
+}
+.scroll__nav{
+  display: flex;
+  gap: 32px;
+}
+.scroll__nav .nav-link{
+  color: #000;
+}
+@media screen and (max-width:1100px){
+  .header__top{
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}
+@media screen and (max-width:950px){
+  .header__scroll{
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+@media screen and (max-width:650px){
+  .header__top--left{
+    flex-wrap: wrap;
+  }
+  .header__top--right{
+    flex-wrap: wrap;
+  }
+}
