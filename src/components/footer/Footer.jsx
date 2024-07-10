@@ -3,7 +3,11 @@ import React from 'react'
 import styles from "./Footer.module.css"
 const Footer = () => {
   return (
-    <footer>Footer</footer>
+    <footer>
+      <div className="container">
+        <h2 className='text-center py-3'>Made by Arslon Bozorov</h2>
+      </div>
+    </footer>
   )
 }
 
