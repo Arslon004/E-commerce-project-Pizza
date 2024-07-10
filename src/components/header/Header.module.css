@@ -127,6 +127,11 @@ header hr {
 .scroll__nav .nav-link{
   color: #000;
 }
+.home{
+  font-weight: 600;
+  font-size: 30px;
+  color: #000;
+}
 @media screen and (max-width:1100px){
   .header__top{
     flex-wrap: wrap;

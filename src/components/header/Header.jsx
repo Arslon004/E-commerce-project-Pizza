@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import location from "../../assets/images/location.svg"
 import account from "../../assets/images/account.svg"
@@ -16,12 +16,13 @@ import kombo from "../../assets/images/kombo.svg"
 
 
 import styles from "./Header.module.css"
+import { ProductContext } from '../context/ProductContext'
 
 const Header = () => {
   const [scrollVisible, setScrollVisible] = useState(false);
-
+  const {cart}=useContext(ProductContext)
   const handleScroll = () => {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 10) {
       setScrollVisible(true);
     } else {
       setScrollVisible(false);
@@ -49,6 +50,7 @@ const Header = () => {
           </div>
           <div className={styles['header__top--right']}>
             <p className={styles.work__time}>Время работы: с 11:00 до 23:00</p>
+
             <div>
               <NavLink className={styles.account__link}>
                 <img src={account} alt="account" /> Войти в аккаунт
@@ -63,8 +65,9 @@ const Header = () => {
           <div className="header__buttom--left">
             <Link><img src={logo} alt="logo" /></Link>
           </div>
+          <NavLink className={styles.home} to={`/`}>Дом</NavLink>
           <div className={styles['header__buttom--right']}>
-            <NavLink className={styles['nav-item']} to={`/cart`}><img src={shopping} alt="" /> 0</NavLink>
+            <NavLink className={styles['nav-item']} to={`/cart`}><img src={shopping} alt="" /><span className='badge bg-success'>({cart.length})</span> </NavLink>
           </div>
         </div>
         </div>
@@ -131,9 +134,12 @@ const Header = () => {
               <a className={`${styles['nav-link']}`} href="#">Соусы</a>
             </li>
           </ul>
+          <NavLink className={styles.home} to={`/`}>Дом</NavLink>
           <div className={styles['header__scroll--cart']}>
-            <NavLink className={styles['nav-item']} to={`/cart`}><img src={shopping} alt="" /> 0</NavLink>
+            <NavLink className={styles['nav-item']} to={`/cart`}><img src={shopping} alt="" />
+            <span className='badge bg-success'>({cart.length})</span> </NavLink>
           </div>
+
         </div>
       </div>
     </header>
