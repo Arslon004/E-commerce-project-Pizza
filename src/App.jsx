@@ -1,25 +1,30 @@
+import { Suspense, lazy } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Layout from "./components/layout"
-import ProductsPage from "./pages/ProductsPage"
-import CartPage from "./pages/CartPage"
-import FavoritePage from "./pages/FavoritePage"
-import ProductMorePage from "./pages/ProductMorePage"
+import Loading from "./components/loading/Loading"
+
+const Layout = lazy(() => import("./components/layout"))
+const ProductsPage = lazy(() => import("./pages/ProductsPage"))
+const CartPage = lazy(() => import("./pages/CartPage"))
+const FavoritePage = lazy(() => import("./pages/FavoritePage"))
+const ProductMorePage = lazy(() => import("./pages/ProductMorePage"))
 
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="" element={<ProductsPage />} />
-          <Route path="product/:productId" element={<ProductMorePage />} />
+    <Suspense fallback={<Loading/>}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="" element={<ProductsPage />} />
+            <Route path="product/:productId" element={<ProductMorePage />} />
 
-          <Route path="cart" element={<CartPage />} />
-          <Route path="favorite" element={<FavoritePage />} />
-          <Route />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+            <Route path="cart" element={<CartPage />} />
+            <Route path="favorite" element={<FavoritePage />} />
+            <Route />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Suspense>
   )
 }
 
